@@ -1,0 +1,12 @@
+<h1>Welcome</h1>
+
+
+<%= link_to 'New Reservation', new_reservation_path %>
+
+<div>
+	<% if user_signed_in? %>
+		<%= link_to "All Reservations", reservation_all_path %>
+	<% else %>
+		
+	<% end %>	
+</div>

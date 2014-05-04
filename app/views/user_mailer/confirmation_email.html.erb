@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+	</head>
+	<body>
+		<h1>-----------------------------------------------</h1>
+		<h1>THIS IS A RESERVATION</h1>
+		<h1>-----------------------------------------------</h1>
+
+		<p>Dear <%= @reservation.name %>,</p>
+		<p>Thanks so much for your reservation. We have put you down for <%= @reservation.date.strftime('%A, %m/%d/%Y') %>, at <%= @reservation.time.strftime("%I:%M%p") %> for <%= @reservation.guests %>.</p>
+		<br>
+		<p>RESERVATION DETAILS</p>
+		<p>DATE: <%= @reservation.date.strftime('%A, %m/%d/%Y') %> </p>
+		<p>TIME: <%= @reservation.time.strftime("%I:%M%p") %> </p>
+		<p>GUESTS: <%=@reservation.guests %> </p>
+		<p>SPECIAL REQUESTS: <%=@reservation.requests %> </p>
+		<br>
+		<p>YOUR CONTACT INFORMATION</p>
+		<P>NAME: <%= @reservation.name %> </P>
+		<p>EMAIL: <%= @reservation.email %> </p>
+		<p>PHONE: <%= @reservation.phone %> </p>
+
+
+		<%= link_to "View Reservation",  reservation_path(@reservation) %>
+	</body>
+</html>
