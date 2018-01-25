@@ -1,12 +1,21 @@
-<h1>Welcome</h1>
+<div class="container text-center">
+	<h1>Welcome To Vinson's Reservation App</h1>
 
+	<br>
+	<h3>Would you like to make a <%= link_to 'New Reservation', new_reservation_path %> ?</h3>
 
-<%= link_to 'New Reservation', new_reservation_path %>
+	<h4>
+		<% if user_signed_in? %>
+			<%= link_to "All Reservations", reservation_all_path %>
+		<% else %>
+			
+		<% end %>	
+	</h4>
 
-<div>
-	<% if user_signed_in? %>
-		<%= link_to "All Reservations", reservation_all_path %>
-	<% else %>
-		
-	<% end %>	
+</div>
+
+<div class="container">
+	<h4>About</h4>
+	<p>Make a reservation.</p>
+	<p>Allow up to 48 hours for confirmation of your reservation.</p>
 </div>

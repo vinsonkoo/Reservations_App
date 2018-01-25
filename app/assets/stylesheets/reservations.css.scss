@@ -1,3 +1,21 @@
 // Place all the styles related to the reservations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.text-center {
+	text-align: center;
+}
+
+ul li {
+	list-style-type: none;
+}
+
+form {
+	margin: 0px;
+}
+
+table {
+	border-collapse: separate;
+	border-spacing: 10px;
+}

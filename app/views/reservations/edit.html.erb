@@ -1,7 +1,12 @@
-<h1>Edit the reservation</h1>
+<div class="text-center">
+	<h1>Edit the reservation</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @reservation %> |
-<%= link_to 'Back Home', reservations_path %>
-<%= link_to 'Back To All Reservations', reservation_all_path %>
+
+	<div class="span12">
+		<%= link_to 'Show', @reservation %> |
+		<%= link_to 'Back Home', reservations_path %>
+		<%= link_to 'Back To All Reservations', reservation_all_path %>
+	</div>
+</div>

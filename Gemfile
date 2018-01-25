@@ -5,10 +5,15 @@ gem 'rails', '4.0.4'
 
 gem 'devise'
 gem 'figaro'
+gem "combined_time_select", "~> 1.0.1"
+gem 'twitter-bootstrap-rails'
+gem 'bootstrap-datepicker-rails'
 
 group :development do 
 	gem 'pry-debugger'
 	gem 'sqlite3'
+	gem 'better_errors'
+	gem 'binding_of_caller'
 end
 
 group :production do

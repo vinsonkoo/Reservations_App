@@ -11,35 +11,48 @@
 		</div>
 	<% end %>
 
-		<div class="field">
-			<%= f.label :date %><br>
-			<%= f.date_field :date %>
-		</div>
-		<div class="field">
-			<%= f.label :time %><br>
-			<%= f.time_field :time %>
-		</div>
-		<div class="field">
-			<%= f.label :guests %><br>
-			<%= f.number_field :guests %>
-		</div>
-		<div class="field">
-			<%= f.label :name %><br>
-			<%= f.text_field :name %>
-		</div>
-		<div class="field">
-			<%= f.label :email %><br>
-			<%= f.email_field :email %>
-		</div>
-		<div class="field">
-			<%= f.label :phone %><br>
-			<%= f.telephone_field :phone %>
-		</div>
-		<div class="field">
-			<%= f.label :requests %><br>
-			<%= f.text_area :requests %>
-		</div>
-		<div class="actions">
-			<%= f.submit %>
-		</div>
+	<div class="span4">
+		<%= f.label :Select_Date, 'Select Reservation Date' %><br>
+		<%= f.text_field :date, 'data-behaviour' => 'datepicker', :id => 'datepicker' %>
+	</div>
+	<div class="span4">
+		<%= f.label :time %><br>
+		<%= f.time_select :time, :combined => true,
+		  :default => Time.now.change(:hour => 10, :min => 00),
+		  :minute_interval => 30,
+		  :time_separator => "",
+		  :start_hour => 10,
+		  :start_minute => 00,
+		  :end_hour => 21,
+		  :end_minute => 30,
+		  ampm: true %>
+	</div>
+	<div class="span4">
+		<%= f.label :guests %><br>
+		<%= f.number_field :guests, :min => 1 %>
+	</div>
+	<div class="span4">
+		<%= f.label :name %><br>
+		<%= f.text_field :name %>
+	</div>
+	<div class="span4">
+		<%= f.label :email %><br>
+		<%= f.email_field :email %>
+	</div>
+	<div class="span4">
+		<%= f.label :phone %><br>
+		<%= f.telephone_field :phone %>
+	</div>
+	<div class="span12">
+		<%= f.label :requests %><br>
+		<%= f.text_area :requests, :rows => 5, :class => "span6" %>
+	</div>
+	<div class="span12">
+		<%= f.submit :class => "btn" %>
+	</div>
 <% end %>
+
+<script type="text/javascript">
+  $('[data-behaviour~=datepicker]').datepicker();
+  
+</script>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140501224607) do
+ActiveRecord::Schema.define(version: 20140504150913) do
 
   create_table "reservations", force: true do |t|
     t.date     "date"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20140501224607) do
     t.text     "requests"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "email_sent"
   end
 
   create_table "users", force: true do |t|

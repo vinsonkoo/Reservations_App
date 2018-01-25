@@ -16,7 +16,8 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation.update safe_reservation_params
+    @reservation = Reservation.find(params[:id])
+    @reservation.update(safe_reservation_params)
     redirect_to @reservation
   end
 
@@ -47,14 +48,27 @@ class ReservationsController < ApplicationController
 
   def send_confirmation
     @reservation = Reservation.find(params[:id])
-    UserMailer.confirmation_email(@reservation).deliver
-      render 'confirmation'
+    if @reservation.email_sent
+      render 'confirmation_already_sent'
+    else
+      UserMailer.confirmation_email(@reservation).deliver
+      @reservation.email_sent = true
+      @reservation.save
+        render 'confirmation'
+    end
   end
 
   def send_cancellation
     @reservation = Reservation.find(params[:id])
-    UserMailer.cancellation_email(@reservation).deliver
-      render 'cancellation'
+
+    if @reservation.email_sent == false
+      render 'cancellation_already_sent'
+    else
+      UserMailer.cancellation_email(@reservation).deliver
+      @reservation.email_sent = false
+      @reservation.save
+        render 'cancellation'
+    end
   end
 
   private
